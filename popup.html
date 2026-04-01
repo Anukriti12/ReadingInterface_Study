@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Study Session Manager</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      width: 320px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 13px; background: #0f0e1a; color: #e0e0e0;
+    }
+    .header { background: #1e1b4b; padding: 14px 16px 12px; border-bottom: 1px solid #2e2b5b; }
+    .header-title { font-size: 14px; font-weight: 700; color: #c4b5fd; margin-bottom: 2px; }
+    .header-sub   { font-size: 11px; color: #555; }
+    .status-row {
+      padding: 10px 16px; display: flex; align-items: center; gap: 8px;
+      border-bottom: 1px solid #1a1830; font-size: 12px;
+    }
+    .dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+    .dot-ok      { background: #10b981; }
+    .dot-warn    { background: #f59e0b; }
+    .dot-error   { background: #ef4444; }
+    .dot-loading { background: #555; animation: pulse 1.2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+    .sessions-label {
+      padding: 10px 16px 5px;
+      font-size: 10px; text-transform: uppercase; letter-spacing: .8px; color: #444;
+    }
+    .empty { padding: 16px; text-align: center; color: #3b3668; font-size: 12px; font-style: italic; }
+    .session-item {
+      padding: 9px 16px; border-bottom: 1px solid #1a1830;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .session-info { flex: 1; min-width: 0; }
+    .session-name { font-size: 12px; font-weight: 600; color: #e0e0e0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .session-meta { font-size: 11px; color: #555; margin-top: 1px; line-height: 1.4; }
+    .badge { font-size: 10px; font-weight: 600; padding: 1px 6px; border-radius: 99px; text-transform: uppercase; }
+    .badge-baseline     { background: rgba(107,114,128,.2); color: #9ca3af; }
+    .badge-frictionless { background: rgba(5,150,105,.2);   color: #34d399; }
+    .badge-friction     { background: rgba(124,58,237,.2);  color: #a78bfa; }
+    .btn { padding: 4px 10px; border: none; border-radius: 5px; cursor: pointer; font-size: 11px; font-weight: 500; white-space: nowrap; }
+    .btn-upload { background: #059669; color: #fff; }
+    .btn-upload:hover { background: #047857; }
+    .btn-upload:disabled { background: #1f2937; color: #374151; cursor: default; }
+    .status-ok  { font-size: 10px; color: #10b981; margin-top: 2px; }
+    .status-err { font-size: 10px; color: #ef4444; margin-top: 2px; }
+    .spinner { display: inline-block; width: 8px; height: 8px; border: 2px solid rgba(255,255,255,.3); border-top-color: #fff; border-radius: 50%; animation: spin .6s linear infinite; vertical-align: middle; margin-right: 3px; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .footer { padding: 9px 16px; border-top: 1px solid #1a1830; display: flex; justify-content: space-between; align-items: center; }
+    .footer-note { font-size: 11px; color: #333; }
+    .btn-all { background: #7c3aed; color: #fff; padding: 5px 12px; }
+    .btn-all:hover { background: #6d28d9; }
+    .btn-all:disabled { background: #1f2937; color: #374151; cursor: default; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="header-title">📖 EI Study — Session Monitor</div>
+    <div class="header-sub">Researcher view · participants do not see this popup</div>
+  </div>
+  <div class="status-row">
+    <div class="dot dot-loading" id="drive-dot"></div>
+    <span id="drive-status">Checking Drive connection…</span>
+  </div>
+  <div class="sessions-label">Sessions pending upload</div>
+  <div id="sessions-list">
+    <div class="empty" id="sessions-empty">Loading…</div>
+  </div>
+  <div class="footer">
+    <span class="footer-note" id="footer-note">Auto-saves to Drive every 30s</span>
+    <button class="btn btn-all" id="btn-all" disabled>Upload all</button>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

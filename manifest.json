@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "Reading Study",
+  "version": "2.0",
+  "description": "Reading comprehension study extension",
+
+  "permissions": [
+    "storage"
+  ],
+
+  "host_permissions": [
+    "https://www.semanticscholar.org/*",
+    "http://localhost:3001/*",
+    "https://*.railway.app/*",
+    "https://*.onrender.com/*"
+  ],
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["https://www.semanticscholar.org/reader/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ],
+
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "EI Study — Session Monitor"
+  }
+}
