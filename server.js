@@ -29,6 +29,8 @@ const OAUTH_CLIENT_SECRET  = process.env.OAUTH_CLIENT_SECRET  ;
 const RESEARCHER_REFRESH_TOKEN = process.env.RESEARCHER_REFRESH_TOKEN ;
 const CLAIMS_TO_HIGHLIGHT  = parseInt(process.env.CLAIMS_TO_HIGHLIGHT || "10");
 
+const SERVER_URL = "readinginterfacestudy-production.up.railway.app";
+
 // Simple request log
 app.use((req, _res, next) => {
   console.log(`[${new Date().toISOString()}] ${req.method} ${req.path}`);

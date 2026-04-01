@@ -12,7 +12,8 @@
     "https://www.semanticscholar.org/*",
     "http://localhost:3001/*",
     "https://*.railway.app/*",
-    "https://*.onrender.com/*"
+    "https://*.onrender.com/*",
+    "https://readinginterface-study.up.railway.app/*"
   ],
 
   "background": {
