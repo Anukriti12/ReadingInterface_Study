@@ -1,0 +1,14 @@
+# Secrets — never commit
+.env
+.env.local
+.env.*
+
+# Dependencies
+node_modules/
+
+# Mac
+.DS_Store
+
+# Logs
+*.log
+.env
