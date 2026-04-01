@@ -13,7 +13,7 @@
     "http://localhost:3001/*",
     "https://*.railway.app/*",
     "https://*.onrender.com/*",
-    "https://readinginterface-study.up.railway.app/*"
+    "https://readinginterfacestudy-production.up.railway.app/*"
   ],
 
   "background": {
