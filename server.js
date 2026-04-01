@@ -12,9 +12,15 @@
 //   3. Set environment variables in Railway dashboard (see below)
 //   4. Copy the Railway URL into background.js as SERVER_URL
 
+
+
+
+require('dotenv').config(); // Add this line at the very top
 const express = require("express");
 const cors    = require("cors");
+const fetch   = require("node-fetch"); // Add this line
 const app     = express();
+
 app.use(cors());
 app.use(express.json({ limit: "10mb" }));
 
