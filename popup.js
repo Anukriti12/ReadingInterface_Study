@@ -16,7 +16,6 @@ checkDrive();
 loadSessions();
 
 // ─── Drive connection check ───────────────────────────────────────────────────
-// Verifies the refresh token works by attempting a token exchange.
 
 function checkDrive() {
   // Try a dummy upload-readiness check: just get a token
@@ -95,7 +94,7 @@ function uploadOne(key) {
       st.textContent = res.filename;
       localSessions = localSessions.filter(s => s.storageKey !== key);
       if (localSessions.length === 0) {
-        footerNote.textContent = "All uploaded ✓";
+        footerNote.textContent = "All uploaded";
         btnAll.disabled = true;
       }
     } else {
@@ -113,7 +112,7 @@ btnAll.addEventListener("click", () => {
   const keys = [...localSessions.map(s => s.storageKey)];
   let i = 0;
   function next() {
-    if (i >= keys.length) { btnAll.textContent = "Done ✓"; return; }
+    if (i >= keys.length) { btnAll.textContent = "Done"; return; }
     uploadOne(keys[i++]);
     setTimeout(next, 700);
   }

@@ -1,32 +1,12 @@
-// server.js — EI Study Backend
-// Holds ALL secrets. Run this on your machine or deploy to Railway/Render.
-// The extension calls this server; participants never see these credentials.
-//
-// Setup:
-//   npm install express cors node-fetch
-//   node server.js
-//
-// Deploy free to Railway: https://railway.app
-//   1. Push this file + package.json to a GitHub repo
-//   2. Connect repo to Railway → it deploys automatically
-//   3. Set environment variables in Railway dashboard (see below)
-//   4. Copy the Railway URL into background.js as SERVER_URL
-
-
-
-
-require('dotenv').config(); // Add this line at the very top
+require('dotenv').config(); 
 const express = require("express");
 const cors    = require("cors");
-// Node 18+ has fetch built in — no import needed
 const app     = express();
 
 app.use(cors());
 app.use(express.json({ limit: "10mb" }));
 
-// ─── Secrets (set as environment variables, never hardcode in shared code) ────
-// On Railway: Settings → Variables → add each one
-// Locally: create a .env file or export them in your terminal before running
+// ─── Secrets (set as environment variables) ────
 
 const ANTHROPIC_API_KEY    = process.env.ANTHROPIC_API_KEY  ;
 const DRIVE_FOLDER_ID      = process.env.DRIVE_FOLDER_ID     ;
@@ -290,6 +270,6 @@ const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`\n[EI Study Backend] Running on http://localhost:${PORT}`);
   console.log(`Drive folder: ${DRIVE_FOLDER_ID || "(not set)"}`);
-  console.log(`Claude key:   ${ANTHROPIC_API_KEY ? "✓ set" : "✗ missing"}`);
-  console.log(`Drive token:  ${RESEARCHER_REFRESH_TOKEN ? "✓ set" : "✗ missing"}\n`);
+  console.log(`Claude key:   ${ANTHROPIC_API_KEY ? " set" : "✗ missing"}`);
+  console.log(`Drive token:  ${RESEARCHER_REFRESH_TOKEN ? " set" : "✗ missing"}\n`);
 });

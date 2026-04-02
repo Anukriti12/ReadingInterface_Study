@@ -1,7 +1,3 @@
-// background.js — EI Study Extension
-// NO secrets here. All calls go to the researcher's server on Railway.
-// Participants can read this file and learn nothing sensitive.
-
 const SERVER_URL = "https://readinginterfacestudy-production.up.railway.app";
 const CLAIMS_TO_HIGHLIGHT = 10;
 

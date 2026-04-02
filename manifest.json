@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Reading Study Extension",
+  "name": "Reading Interface Study",
   "version": "1.1",
-  "description": "Reading comprehension study extension",
+  "description": "Browser Extension",
 
   "permissions": [
     "storage"
@@ -28,6 +28,6 @@
 
   "action": {
     "default_popup": "popup.html",
-    "default_title": "EI Study — Session Monitor"
+    "default_title": "EI Study (Session Monitor)"
   }
 }
