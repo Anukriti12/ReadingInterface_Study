@@ -1716,7 +1716,7 @@ const CURATED_CLAIMS = {
   ],
   "c7f9523717b643d4cb3541041671ebe607f58c93": [
     "individuals reporting high levels of the motives Social Compensation (OR=9.20 [CI 95%; 5.49\u201315.42]), Self-status (OR=9.24 [CI 95%; 5.79\u201314.74]), or Escape (OR=6.38 [CI 95%; 4.28\u20139.50]) were much more likely to meet the criteria for SMD compared to those with low or medium levels",
-    "Individuals with bipolar disorder made more frequent status posts relative to individuals with other primary diagnoses",
+    "Relying on positive feedback via social media to boost one's self-esteem can create a negative cycle, where individuals feel a constant need to seek external validation through social media",
     "The most common motives for social media use were entertainment, social maintenance, and information/skills.",
     "Social compensation, self-status, and escape are the strongest predictors of social media disorder (SMD).",
     "Motives for using social media are important targets for prevention and intervention of problematic use.",
@@ -1736,11 +1736,11 @@ const CURATED_CLAIMS = {
     "Higher-income regions show greater aggregate diversity and stronger associations with positive emotional music tags, while negative emotions correlate with lower income.",
   ],
   "16e4891ca090b073b0e9ea5628b4feb06af53db4": [
-    "We divided the task into two phases. This division allows participants to experience a sense of accomplishment after completing the first phase",
-    "Participants continued to correctly identify fabricated videos as deepfake; however, they might experience confusion and struggle to detect genuine videos as real.",
-    "Human performance at detecting audiovisual deepfakes is marginally better than random chance.",
-    "Once participants classified a video, they were provided with the correct label; in this way, participants could track their performance.",
-    "Another factor may be that participants interpret their familiarity with certain faces or voices as evidence of authenticity.",
+    "From Phase I to Phase II, the average accuracy across all participants increased from 63.30% to 67.98%",
+    "of the 41% of \"fake\" responses, 16% believed that there were two manipulation modes",
+    "there is no significant correlation between human audiovisual deepfake detection and their IT skill level",
+    "forewarning of these artifacts and the potential adverse effects of audiovisual deepfake technology did not have any significant impact on participants' performance",
+    "AI models excel humans at integrating information from multiple modalities",
   ],
   "5d7a8ed31d438ff8824114be4292400839432e94": [
     "Feedback given by customers for sharing experience regarding certain brand, product, or service will increase preference of other customers for the product, resulting in decision to purchase which will further increase sales.",
