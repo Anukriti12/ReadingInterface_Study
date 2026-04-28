@@ -1763,6 +1763,13 @@ const CURATED_CLAIMS = {
     "Black/African American populations tend to have better accessibility to public heat refuges, which may prove helpful if they are concentrated in high-heat census block groups",
     "The network distance analysis of public refuge access shows that 3.4\u201332.7% of the city's population can access a refuge on foot, depending upon walking speed",
   ],
+    "027906dd8367ca911a034c996b305ea75c0b71e5": [
+    "Urban development patterns often feature lower rents in areas near large roads and buildings [57], both of which can amplify urban heat effects",
+    "This aggregation method simplifies the UHI dataset, however this alteration of the raw data is deemed worthwhile in order to assess relationships with demographic data",
+    "These three urban heat models were created using random forest machine learning on temperature data collected using vehicle-based traverse measurements. Multiple land uses are included in the model (e.g., tree cover, building volume), and the temperatures derived are representative of the underlying urban form",
+    "Black/African American populations tend to have better accessibility to public heat refuges, which may prove helpful if they are concentrated in high-heat census block groups",
+    "The network distance analysis of public refuge access shows that 3.4\u201332.7% of the city's population can access a refuge on foot, depending upon walking speed",
+  ],
 };
 
 // ─── CURATED CLAIM HIGHLIGHTING ───────────────────────────────────────────────
