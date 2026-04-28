@@ -1,5 +1,3 @@
-
-
 // const PAGE_HEIGHT_PX = 1267.2;
 // const AUTOSAVE_INTERVAL_MS = 30000;  // save to chrome.storage every 30 seconds
 // const STORAGE_KEY_PREFIX = "rs_session_";
@@ -579,7 +577,7 @@
 //     "Most patients reported checking their phone at least once per hour but posting rarely, potentially suggesting that our sample may primarily use social media passively and perhaps experience it as a platform for social comparison rather than for social connection or support.",
 //     "Although technology-driven interventions have the potential to reduce barriers to mental health treatment, they might also unintentionally further existing disparities in access.",
 //     "It may be that individuals in our sample are more prone to ruminative response styles and more likely to engage in social comparisons through social media, thereby perceiving a negative impact of social media on their mental health.",
-//     "Although technology-driven interventions have the potential to reduce barriers to mental health treatment, they might also unintentionally further existing disparities in access. Future research should examine whether specific efforts are needed to encourage/assist individuals with lower levels of education to use smartphone app interventions for mental health purposes.",
+//     "Individuals with bipolar disorder made more frequent status posts relative to individuals with other primary diagnoses"
 //   ],
 //   "41c5be0c4574cea3a158a8ca333251b293921b2d": [
 //     "The sixth affect-related statement was, 'Photoshop helps me deal with the anxiety from the judgment of others,' had a significant strong, negative correlation, r = .858, p < .05",
@@ -622,6 +620,34 @@
 //     "During the analysis of our pilot study, we removed items with low correlation(<0.5) and did a reliability analysis to remove items that contribute negatively to Cronbach's alpha value",
 //     "The lower three were also correlated, assuming they have something to do in common and we will name them societal benefits.",
 //     "Most of our participants reported that their engagement does not increase based on how their content is engaged or not",
+//   ],
+//   "51a4702a602dc6e48b9b946cffeb338f2d2a1ab0": [
+//     "The study used a randomized controlled design with three treatment conditions varying in levels of human–animal interaction (HAI).",
+//     "Learning and study strategies were measured using a validated instrument (LASSI) with multiple components.",
+//     "At-risk students who received human-animal interaction (alone or combined with content) showed higher motivation-related outcomes (WILL) than those receiving only stress-management content.",
+//     "Combining human–animal interaction with stress-management content improves self-regulation skills for at-risk students.",
+//     "Human-animal interaction interventions are particularly beneficial for students at high risk of academic failure.",
+//   ],
+//   "b53bdf4562c06d78f260036c3f62dc34eaa0a6b8": [
+//     "The study uses a cross-institutional survey design to improve diversity and generalizability of findings.",
+//     "The study combines quantitative and qualitative analysis to understand students' trust in GenAI.",
+//     "Students widely use GenAI, primarily for understanding code and seeking help rather than generating new code.",
+//     "Students' trust in GenAI is generally moderate and not blind.",
+//     "Students' trust in GenAI is positively associated with increased motivation and confidence, especially for first-generation students.",
+//   ],
+//   "da546ea3e7545efbeeb2b3931c20b7ee5ee745a5": [
+//     "The study uses a quasi-experimental design comparing a ChatGPT group with a conventional learning group.",
+//     "The independent variable is the use of ChatGPT, while the dependent variable is student engagement and learning outcomes.",
+//     "Students in the ChatGPT (experimental) group achieved higher average learning outcomes than those in the control group.",
+//     "The difference in learning outcomes between groups is statistically significant.",
+//     "ChatGPT enhances learning by providing interactive and personalized experiences that increase student participation.",
+//   ],
+//   "c7f9523717b643d4cb3541041671ebe607f58c93": [
+//     "The study uses a large cross-sectional survey of adolescents and young adults in Sweden.",
+//     "Six distinct social media use motives were measured using Likert-scale items.",
+//     "The most common motives for social media use were entertainment, social maintenance, and information/skills.",
+//     "Social compensation, self-status, and escape are the strongest predictors of social media disorder (SMD).",
+//     "Motives for using social media are important targets for prevention and intervention of problematic use.",
 //   ],
 // };
 
@@ -685,11 +711,13 @@
 //     const normStart = virtualNorm.indexOf(probe);
 //     console.log('[Study] probe:', JSON.stringify(probe.slice(0,40)), '→', normStart);
 //     if (normStart === -1) continue;
-//     const normEnd = normStart + probe.length;
 
-//     // The normalization may shift character positions slightly (e.g. collapsing spaces).
-//     // Since normStr only lowercases + collapses whitespace, positions are close enough
-//     // for our purposes — we use normStart/normEnd as raw offsets into virtual too.
+//     // Extend end forward to next sentence-ending punctuation (. ! ?)
+//     let normEnd = normStart + probe.length;
+//     const ahead = virtualNorm.slice(normEnd, normEnd + 600);
+//     const sentenceEnd = ahead.search(/[.!?]/);
+//     if (sentenceEnd !== -1) normEnd = normEnd + sentenceEnd + 1; // include the punctuation
+
 //     const rawStart = normStart;
 //     const rawEnd = normEnd;
 
@@ -889,7 +917,7 @@
 //     </div>
 //     <div class="rs-panel-claim-label">THE CLAIM</div>
 //     <div class="rs-panel-claim" id="rs-panel-claim-text"></div>
-//     <div class="rs-panel-question">Why is this true? How does it connect to what you have read so far or already know?</div>
+//     <div class="rs-panel-question">Why is this true? How does it connect to what you already know?</div>
 //     <textarea class="rs-panel-textarea" id="rs-response" placeholder="Write your explanation here before seeing the expert answer…" rows="5"></textarea>
 //     <div class="rs-panel-row">
 //       <button class="rs-btn-reveal" id="rs-reveal" disabled>Reveal Expert Answer</button>
@@ -1621,7 +1649,7 @@ const CURATED_CLAIMS = {
     "Most patients reported checking their phone at least once per hour but posting rarely, potentially suggesting that our sample may primarily use social media passively and perhaps experience it as a platform for social comparison rather than for social connection or support.",
     "Although technology-driven interventions have the potential to reduce barriers to mental health treatment, they might also unintentionally further existing disparities in access.",
     "It may be that individuals in our sample are more prone to ruminative response styles and more likely to engage in social comparisons through social media, thereby perceiving a negative impact of social media on their mental health.",
-    "Individuals with bipolar disorder made more frequent status posts relative to individuals with other primary diagnoses"
+    "Individuals with bipolar disorder made more frequent status posts relative to individuals with other primary diagnoses",
   ],
   "41c5be0c4574cea3a158a8ca333251b293921b2d": [
     "The sixth affect-related statement was, 'Photoshop helps me deal with the anxiety from the judgment of others,' had a significant strong, negative correlation, r = .858, p < .05",
@@ -1666,32 +1694,74 @@ const CURATED_CLAIMS = {
     "Most of our participants reported that their engagement does not increase based on how their content is engaged or not",
   ],
   "51a4702a602dc6e48b9b946cffeb338f2d2a1ab0": [
-    "The study used a randomized controlled design with three treatment conditions varying in levels of human–animal interaction (HAI).",
-    "Learning and study strategies were measured using a validated instrument (LASSI) with multiple components.",
-    "At-risk students who received human-animal interaction (alone or combined with content) showed higher motivation-related outcomes (WILL) than those receiving only stress-management content.",
-    "Combining human–animal interaction with stress-management content improves self-regulation skills for at-risk students.",
-    "Human-animal interaction interventions are particularly beneficial for students at high risk of academic failure.",
+    "compared to at-risk students who exclusively received evidence-based academic stress management content, at-risk students who interacted with therapy dogs, exclusively or in combination with content exposure, had significantly higher scores of WILL after the intervention, which remained 6 weeks later",
+    "it is possible that exposure to ASM content exclusively, i.e., without engagement in HAI, may have had the effect of increasing participant focus on academic challenges which would likely include a corresponding increase in fear, anxiety, and stress.",
+    "the presence of animals created a more positive and calming environment that allowed for optimal onboarding of ASM content and discussion about stressful topics such as academic stress, academic goal setting, and motivation, and discussion about test taking and study strategies.",
+    "HAI may indirectly influence learning by increasing self-regulation and stress coping, or through the promotion of social behaviors, increased calmness, and reduced fear and anxiety",
+    "at-risk students who interacted with therapy dogs in combination with content exposure had significantly higher scores of SELFREGULATION after the intervention that remained 6 weeks later",
   ],
   "b53bdf4562c06d78f260036c3f62dc34eaa0a6b8": [
-    "The study uses a cross-institutional survey design to improve diversity and generalizability of findings.",
-    "The study combines quantitative and qualitative analysis to understand students' trust in GenAI.",
-    "Students widely use GenAI, primarily for understanding code and seeking help rather than generating new code.",
+    "students mostly turned to GenAI to seek programming help and to understand code, rather than writing new code itself",
+    "among first-generation students (Figure 1b), trust correlates stronger to improving motivation (0.57) and confidence (0.4), compared to continuing-generation students, which are (0.37) and (0.35), respectively",
+    "The users also generally believed that \"professionals use AI\" compared to their non-user counterparts",
     "Students' trust in GenAI is generally moderate and not blind.",
     "Students' trust in GenAI is positively associated with increased motivation and confidence, especially for first-generation students.",
   ],
   "da546ea3e7545efbeeb2b3931c20b7ee5ee745a5": [
-    "The study uses a quasi-experimental design comparing a ChatGPT group with a conventional learning group.",
+    "The mean is sensitive to extreme values, and it provides a balanced representation of the data when the distribution is approximately symmetric.",
     "The independent variable is the use of ChatGPT, while the dependent variable is student engagement and learning outcomes.",
     "Students in the ChatGPT (experimental) group achieved higher average learning outcomes than those in the control group.",
-    "The difference in learning outcomes between groups is statistically significant.",
-    "ChatGPT enhances learning by providing interactive and personalized experiences that increase student participation.",
+    "It is less influenced by extreme values and is often used when dealing with skewed or non-normally distributed data",
+    "By utilizing the capabilities of Chat GPT, students can have an interactive and personalized learning experience that encourages active participation and student learning outcomes in the technology learning process",
   ],
   "c7f9523717b643d4cb3541041671ebe607f58c93": [
-    "The study uses a large cross-sectional survey of adolescents and young adults in Sweden.",
-    "Six distinct social media use motives were measured using Likert-scale items.",
+    "individuals reporting high levels of the motives Social Compensation (OR=9.20 [CI 95%; 5.49\u201315.42]), Self-status (OR=9.24 [CI 95%; 5.79\u201314.74]), or Escape (OR=6.38 [CI 95%; 4.28\u20139.50]) were much more likely to meet the criteria for SMD compared to those with low or medium levels",
+    "Individuals with bipolar disorder made more frequent status posts relative to individuals with other primary diagnoses",
     "The most common motives for social media use were entertainment, social maintenance, and information/skills.",
     "Social compensation, self-status, and escape are the strongest predictors of social media disorder (SMD).",
     "Motives for using social media are important targets for prevention and intervention of problematic use.",
+  ],
+  "fb8d46815cdb8316cca3cd8ac9e34eee3220ebb1": [
+    "Players commonly perceive loot boxes as systems driven by unfavorable odds and low probability outcomes.",
+    "Loot boxes are often experienced as financially burdensome due to repeated spending driven by randomness.",
+    "Players' attitudes toward loot boxes depend heavily on the type of rewards, with cosmetic items being viewed more positively than gameplay advantages.",
+    "Game design and monetization strategies (limited-time events, progression barriers) actively influence players' purchasing behavior.",
+    "Players identify both direct and indirect parallels between loot boxes and gambling through randomness, spending behavior, and reward anticipation.",
+  ],
+  "b88209f74aac05592eb39f2830d97f4e9f384221": [
+    "Popularity of music tracks decays over time following a power-law-like pattern: while most attention drops early, songs continue to receive diminishing but long-lasting attention regardless of genre or user demographics.",
+    "While earlier survey-based studies suggested that musical preferences are most strongly shaped in early adulthood (ages 23 to 25), this study observes a peak around age 13.",
+    "After early adulthood, individual users tend to listen to a narrower, most stable set of music, while differences between users increase.",
+    "Female users exhibit greater within-group variability and remain more sensitive to newly released music after adolescence.",
+    "Higher-income regions show greater aggregate diversity and stronger associations with positive emotional music tags, while negative emotions correlate with lower income.",
+  ],
+  "16e4891ca090b073b0e9ea5628b4feb06af53db4": [
+    "We divided the task into two phases. This division allows participants to experience a sense of accomplishment after completing the first phase",
+    "Participants continued to correctly identify fabricated videos as deepfake; however, they might experience confusion and struggle to detect genuine videos as real.",
+    "Human performance at detecting audiovisual deepfakes is marginally better than random chance.",
+    "Once participants classified a video, they were provided with the correct label; in this way, participants could track their performance.",
+    "Another factor may be that participants interpret their familiarity with certain faces or voices as evidence of authenticity.",
+  ],
+  "5d7a8ed31d438ff8824114be4292400839432e94": [
+    "Feedback given by customers for sharing experience regarding certain brand, product, or service will increase preference of other customers for the product, resulting in decision to purchase which will further increase sales.",
+    "Social media for marketing had the greatest indirect effect on business performance through entrepreneurial marketing",
+    "The ability to interprete consumers' needs and wants from the data obtained on social media is an essential business skill to master",
+    "Social media will also create various innovations in business organization since it is supported by good communication with customers, input from customers, and feedback",
+    "Online sales system with minimum physical interaction has greatly help business to maintain the sales rate of product amidst the limited activity to do during pandemic and consumer awareness to maintain immunity",
+  ],
+  "63ab475438aeecc3f67af078500ef373129eb987": [
+    "In line with expectations, no statistically significant main or interaction effects could be observed for the measures voice realism and body movement realism as we were only changing the facial animations and appearance but not the body movement or the voice",
+    "there was a noticeably different Social Presence rating for the appearance condition Photorealistic (estimated x\u0305 = 4.879, SE = 0.703) as compared to the Semi-realistic condition (estimated x\u0305 = 2.876, SE = 0.703), indicating that social presence was indeed higher for the photorealistic appearance condition",
+    "Subsequent post hoc pairwise comparisons highlighted that the Emotion Scenarios Angry and Sad scored significantly lower than the Emotion Scenarios Neutral and Happy",
+    "Complete removal of upper face motion did indeed led to significantly lower intensity ratings. However, the lack of eyebrow motion only didn't lead to significantly different perceptions of emotion intensity",
+    "Both of these studies suggests that the uncanny valley with today's photo-realistic virtual humans has been crossed, as more photorealistic renders were perceived as more appealing in user studies",
+  ],
+  "292839cb8e5c601be8cd467184939de7873fdd44": [
+    "Urban development patterns often feature lower rents in areas near large roads and buildings [57], both of which can amplify urban heat effects",
+    "This aggregation method simplifies the UHI dataset, however this alteration of the raw data is deemed worthwhile in order to assess relationships with demographic data",
+    "These three urban heat models were created using random forest machine learning on temperature data collected using vehicle-based traverse measurements. Multiple land uses are included in the model (e.g., tree cover, building volume), and the temperatures derived are representative of the underlying urban form",
+    "Black/African American populations tend to have better accessibility to public heat refuges, which may prove helpful if they are concentrated in high-heat census block groups",
+    "The network distance analysis of public refuge access shows that 3.4\u201332.7% of the city's population can access a refuge on foot, depending upon walking speed",
   ],
 };
 
