@@ -43,10 +43,18 @@
 .rs-fail-btn--retry:hover { background:#166534;color:white; }
 
 /* ── Claim marks ─────────────────────────────────────────────────────────── */
-.rs-claim { background:linear-gradient(120deg,#fde68a,#fbbf24);cursor:pointer;border-radius:3px;padding:1px 3px;border-bottom:2px solid #f59e0b;transition:box-shadow 0.15s; }
-.rs-claim:hover { box-shadow:0 2px 8px rgba(245,158,11,0.5); }
-.rs-claim--active { background:linear-gradient(120deg,#c4b5fd,#a78bfa);border-bottom-color:#7c3aed; }
-.rs-claim--done { background:#d1fae5;border-bottom-color:#10b981;cursor:pointer; }
+mark.rs-claim {
+  background-color: rgba(251,191,36,0.45);
+  color: inherit;
+  border-radius: 3px;
+  padding: 1px 0;
+  cursor: pointer;
+  display: inline;
+  transition: background-color 0.15s;
+}
+mark.rs-claim:hover { background-color: rgba(251,191,36,0.7); }
+mark.rs-claim.rs-claim--active { background-color: rgba(167,139,250,0.55); }
+mark.rs-claim.rs-claim--done { background-color: rgba(16,185,129,0.4); }
 
 /* ── EI Panel ────────────────────────────────────────────────────────────── */
 #rs-panel { position:fixed;bottom:24px;right:24px;width:420px;max-height:82vh;overflow-y:auto;background:#1e1b4b;border:1px solid #4c1d95;border-radius:14px;box-shadow:0 20px 60px rgba(0,0,0,0.55);z-index:999999;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:14px;color:#e0e0e0;animation:rs-slide 0.25s ease; }

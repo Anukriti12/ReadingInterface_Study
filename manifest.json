@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Reading Interface Study",
-  "version": "1.1",
-  "description": "Browser Extension",
+  "version": "2.0",
+  "description": "Final Browser Extension",
 
   "permissions": [
     "storage"
