@@ -1786,13 +1786,13 @@ const CURATED_CLAIMS = {
     "the decay of music preferences that we observed in the NCM dataset is much slower than in any other case previously observed in online social media",
     "higher homogenization of musical tastes among college students and young professionals could therefore be attributed to the more homogeneous social structures in these environments",
   ],
-  "16e4891ca090b073b0e9ea5628b4feb06af53db4": [
-    "We divided the task into two phases. This division allows participants to experience a sense of accomplishment after completing the first phase",
-    "Participants continued to correctly identify fabricated videos as deepfake; however, they might experience confusion and struggle to detect genuine videos as real.",
-    "Human performance at detecting audiovisual deepfakes is marginally better than random chance.",
-    "Once participants classified a video, they were provided with the correct label; in this way, participants could track their performance.",
-    "Another factor may be that participants interpret their familiarity with certain faces or voices as evidence of authenticity.",
-  ],
+  // "16e4891ca090b073b0e9ea5628b4feb06af53db4": [
+  //   "We divided the task into two phases. This division allows participants to experience a sense of accomplishment after completing the first phase",
+  //   "Participants continued to correctly identify fabricated videos as deepfake; however, they might experience confusion and struggle to detect genuine videos as real.",
+  //   "Human performance at detecting audiovisual deepfakes is marginally better than random chance.",
+  //   "Once participants classified a video, they were provided with the correct label; in this way, participants could track their performance.",
+  //   "Another factor may be that participants interpret their familiarity with certain faces or voices as evidence of authenticity.",
+  // ],
   "332081c3f7b206a81e7e7c399b28c56cc2f14797": [
     "two posts could be fully visible in the browser window—in such cases, we assumed participants were viewing both because it was impossible to determine exactly which post they were looking at.",
     "more sensational posts were associated with more \"trying,\" but more credible posts were associated with less \"trying.\"",
